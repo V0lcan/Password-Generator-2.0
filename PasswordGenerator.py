@@ -116,7 +116,7 @@ divider.pack()
 save_frame = tk.Frame(app, bg=c1)
 
 #Save password to file
-save_source = tk.Label(save_frame, text="filename:", fg="white", bg=c1, justify="right")
+save_source = tk.Label(save_frame, text="Filename:", fg="white", bg=c1, justify="right")
 save_source.grid(row=0, column=0, sticky="e")
 save_source_entry = tk.Entry(save_frame, width=20, fg="white", bg=c2)
 save_source_entry.grid(row=0, column=1, pady=5)
