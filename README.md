@@ -8,5 +8,5 @@ This version also has a password manager in the form of text files.
 
 OPTIONAL:
 4. Enter a name for the file (preferably the name of the service associated with the password).
-5. Enter a username to associate with the password
-6. Save password to file
+5. Enter a username to associate with the password.
+6. Save password to file.
