@@ -3,9 +3,25 @@ import random
 
 global specials_var, numbers_var, uppercase_var
 
+#Config
+with open("config.txt", "r") as file: #Get the filepath from the config file.
+            for line in file: 
+                if "filepath=" in line: #If the line contains the filepath.
+                    filepath = line.split("=")[1] #Get the filepath.
+                    filepath = filepath[:-1] #Remove the newline character.
+
+                if "characters_min=" in line: #Set min characters
+                    characters_min = int(line.split("=")[1])
+
+                if "characters_max=" in line: #Set max characters
+                    characters_max = int(line.split("=")[1])
+
+                if "window_size=" in line:
+                    window_size = line.split("=")[1]
+
 def password_generator(CharacterAmount, Special_Characters, Numbers, UpperCase):
 
-    if CharacterAmount < 1:
+    if CharacterAmount < characters_min or CharacterAmount > characters_max:
         error_message.configure(text="Please enter a valid number.")
         return
 
@@ -32,7 +48,6 @@ def password_generator(CharacterAmount, Special_Characters, Numbers, UpperCase):
         else:
             Password += LowerCase_List[random.randint(0, 25)]
 
-    
     generated_password.delete(1.0, "end")
     generated_password.insert("1.0", Password)
     generated_password.tag_configure("center", justify="center")
@@ -46,7 +61,8 @@ def save_password_to_file(Source, Username, Password):
         error_message.configure(text="Username cannot be empty.")
         return
     else:
-        open(f"Passwords/{Source}.txt", "w").write(f"Username: {Username}\nPassword: {Password}")
+        open(f"{filepath}\\{Source}.txt", "w").write(f"Username: {Username}\nPassword: {Password}")
+        error_message.configure(text="Saved to: " + filepath + f"\\{Source}.txt")
 
 def copy_to_clipboard(text_to_copy):
     app.clipboard_clear()
@@ -61,7 +77,7 @@ c4 = "#4c566a"
 #App
 app = tk.Tk()
 app.title("Password Generator")
-app.geometry("400x300")
+app.geometry(window_size)
 app.resizable(False, False)
 app.configure(bg=c1, padx=10, pady=20)
 
