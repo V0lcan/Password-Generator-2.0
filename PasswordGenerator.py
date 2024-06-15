@@ -64,7 +64,6 @@ app.title("Password Generator")
 app.geometry("400x300")
 app.resizable(False, False)
 app.configure(bg=c1, padx=10, pady=20)
-app.iconbitmap("icon.ico")
 
 #Amount of characters
 text1 = tk.Label(app, text="How many characters do you want in your password?", fg="white", bg=c1)
