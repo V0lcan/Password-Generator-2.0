@@ -1,0 +1,4 @@
+filepath=.\Passwords
+characters_min=1
+characters_max=256
+window_size=400x300
