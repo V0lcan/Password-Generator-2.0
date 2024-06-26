@@ -83,7 +83,7 @@ app = tk.Tk()
 app.title("Password Generator")
 app.geometry(window_size)
 app.resizable(False, False)
-app.configure(bg=c1, padx=10, pady=20)
+app.configure(bg=c1, padx=10, pady=3)
 
 # Amount of characters
 text1 = tk.Label(app, text="How many characters do you want in your password?", fg="white", bg=c1)
@@ -99,15 +99,15 @@ uppercase_var = tk.BooleanVar()
 check_frame = tk.Frame(app, bg=c1, pady=10)
 
 # Special Characters
-special_characters = tk.Checkbutton(check_frame, text="Special Characters", fg=c4, bg=c1, activebackground=c1, activeforeground=c2, onvalue=1, offvalue=0, variable=specials_var)
+special_characters = tk.Checkbutton(check_frame, text="Special Characters", fg='white', bg=c1, activebackground=c1, activeforeground=c2, onvalue=1, offvalue=0, variable=specials_var)
 special_characters.grid(row=0, column=0)
 
 # Numbers
-numbers = tk.Checkbutton(check_frame, text="Numbers", fg=c4, bg=c1, activebackground=c1, activeforeground=c2, onvalue=1, offvalue=0, variable=numbers_var)
+numbers = tk.Checkbutton(check_frame, text="Numbers", fg='white', bg=c1, activebackground=c1, activeforeground=c2, onvalue=1, offvalue=0, variable=numbers_var)
 numbers.grid(row=0, column=1)
 
 # Uppercase
-uppercase = tk.Checkbutton(check_frame, text="Uppercase", fg=c4, bg=c1, activebackground=c1, activeforeground=c2, onvalue=1, offvalue=0, variable=uppercase_var)
+uppercase = tk.Checkbutton(check_frame, text="Uppercase", fg='white', bg=c1, activebackground=c1, activeforeground=c2, onvalue=1, offvalue=0, variable=uppercase_var)
 uppercase.grid(row=0, column=2)
 
 check_frame.pack()
@@ -117,19 +117,19 @@ generate_frame = tk.Frame(app, bg=c4)
 generate_frame.pack()
 
 # Generate Button
-generate = tk.Button(generate_frame, cursor="hand2", text="Generate Password", fg="white", bg=c2, activebackground=c3, activeforeground="white", command=lambda: password_generator(int(character_amount.get()), specials_var.get(), numbers_var.get(), uppercase_var.get()))
+generate = tk.Button(generate_frame, cursor="hand2", text="Generate Password", fg="black", bg=c2, activebackground=c3, activeforeground="white", command=lambda: password_generator(int(character_amount.get()), specials_var.get(), numbers_var.get(), uppercase_var.get()))
 generate.grid(row=0, column=0)
 
 # Copy to clipboard
-copy = tk.Button(generate_frame, cursor="hand2", text="Copy to Clipboard", fg="white", bg=c2, activebackground=c3, activeforeground="white", command=lambda: copy_to_clipboard(generated_password.get("1.0", "end")))
+copy = tk.Button(generate_frame, cursor="hand2", text="Copy to Clipboard", fg="black", bg=c2, activebackground=c3, activeforeground="white", command=lambda: copy_to_clipboard(generated_password.get("1.0", "end")))
 copy.grid(row=0, column=1)
 
 # Generated password
-generated_password = tk.Text(app, cursor="arrow", height=1, fg="white", bg=c1, border=0, pady=5)
+generated_password = tk.Text(app, cursor="arrow", height=1, fg="black", bg=c1, border=0, pady=5)
 generated_password.pack()
 
 # Divider
-divider = tk.Label(app, text="", fg="white", bg=c1, height=0, pady=1)
+divider = tk.Label(app, text="", fg="black", bg=c1, height=0, pady=1)
 divider.pack()
 
 # Save frame
@@ -148,7 +148,7 @@ save_username_entry.grid(row=1, column=1, pady=5)
 
 save_frame.pack()
 
-save = tk.Button(save_frame, cursor="hand2", text="Save Password to File", fg="white", bg=c2, activebackground=c3, activeforeground="white", command=lambda: save_password_to_file(save_source_entry.get(), save_username_entry.get(), generated_password.get("1.0", "end")))
+save = tk.Button(save_frame, cursor="hand2", text="Save Password to File", fg="black", bg=c2, activebackground=c3, activeforeground="white", command=lambda: save_password_to_file(save_source_entry.get(), save_username_entry.get(), generated_password.get("1.0", "end")))
 save.grid(row=2, column=0, columnspan=2)
 
 # Error message
